@@ -1,6 +1,6 @@
 # Tailor Resume Skill
 
-中文 | English
+中文 | [English](https://github.com/tiiiiiimmy/tailor-resume#english)
 
 ## 中文说明
 
