@@ -17,7 +17,7 @@ Generate a tailored, JD-matched resume in Markdown from a candidate's full exper
 
 | Input           | Description                                                                                       |
 | --------------- | ------------------------------------------------------------------------------------------------- |
-| `cv_file`       | Full experience library — TXT, PDF, or DOCX (e.g. `cv/19_04Timmy Huang Full Stack Developer.txt`) |
+| `cv_file`       | Full experience library — TXT, PDF, or DOCX (e.g. `cv/19_04First Name Last Name Full Stack Developer.txt`) |
 | `jd_file`       | Job description — MD or TXT (e.g. `jobs/SoftwareQA_RosterLab.md`)                                 |
 | `template_file` | Resume template — always `cv/cv_template.md` in the job-hunter skill directory                    |
 
@@ -26,7 +26,7 @@ Read all three files before generating any output.
 
 ## Output
 
-- File path: `cv/Timmy_Huang_[CompanyName_JobTitle]v[N].md`
+- File path: `cv/[FirstName]_[LastName]_[CompanyName_JobTitle]v[N].md`
   - CompanyName and JobTitle: PascalCase, no spaces, extracted from JD
   - N: version number, start at 1, increment if file already exists
 - Format: strictly follows `cv/cv_template.md` layout (YAML frontmatter `---`, iconify spans for header, `##` sections)
@@ -150,7 +150,7 @@ Before writing the file, verify:
 - Every required JD tech appears at least once (in Skills or bolded in a bullet)
 - Every Experience entry has an italic one-sentence summary
 - Experiences are sorted most-recent-first
-- File is named `Timmy_Huang_[CompanyName_JobTitle]v[N].md`
+- File is named `[FirstName]_[LastName]_[CompanyName_JobTitle]v[N].md`
 - Template frontmatter `---\n---` is preserved at top of file
 - No fabricated company names, titles, or dates
 
@@ -218,4 +218,3 @@ Before writing the file, verify:
 Institution
   : Location
 ```
-
