@@ -15,11 +15,11 @@ Generate a tailored, JD-matched resume in Markdown from a candidate's full exper
 ## Inputs Required
 
 
-| Input           | Description                                                                                       |
-| --------------- | ------------------------------------------------------------------------------------------------- |
-| `cv_file`       | Full experience library — TXT, PDF, or DOCX (e.g. `cv/19_04First Name Last Name Full Stack Developer.txt`) |
-| `jd_file`       | Job description — MD or TXT (e.g. `jobs/SoftwareQA_RosterLab.md`)                                 |
-| `template_file` | Resume template — always `cv/cv_template.md` in the job-hunter skill directory                    |
+| Input     | Description                                                                                                |
+| --------- | ---------------------------------------------------------------------------------------------------------- |
+| `cv_file` | Full experience library — TXT, PDF, or DOCX (e.g. `cv/19_04First Name Last Name Full Stack Developer.txt`) |
+| `jd_file` | Job description — MD or TXT (e.g. `jobs/SoftwareQA_RosterLab.md`)                                          |
+
 
 
 Read all three files before generating any output.
@@ -49,6 +49,8 @@ For each item in the CV experience library, score relevance to the JD and decide
 - Include as Work Experience (paid roles/internships)
 - Include as Projects (courses, hackathons, personal)
 - Deprioritise or omit (irrelevant, too old, crowds out better items)
+
+**There is no fixed cap on the number of Experience entries or Projects.** Include every entry that adds value for this specific JD. The combined total of Work Experience + Projects can reach up to ~12 entries if all are relevant. Only omit entries that are genuinely irrelevant to the role or would actively dilute the narrative — not because of an assumed page limit.
 
 Sort all Work Experience and Projects **chronologically, most recent first**.
 
@@ -95,7 +97,15 @@ Format: `**Category:** tool1, tool2 · tool3, tool4`
 
 #### `## Experience`
 
-For each role (most recent first):
+For each role (most recent first). If the CV library lists a URL for a role, append a plain `Link` anchor inline after the job title on the title line — same format as Projects:
+
+```
+**Job Title** <a href="https://example.com/" target="_blank" rel="noopener">Link</a>
+  : **Company — Employment Type**
+  : **Month Year – Month Year**
+```
+
+Omit the `<a>` tag entirely if no URL is present for that role. Never fabricate or guess a URL.
 
 ```
 **Job Title**
@@ -121,21 +131,21 @@ Bullet rules:
 - Bold key technologies the JD requires: `**Playwright**`, `**Jest**`, `**React + TypeScript**`
 - Include quantified outcomes where the CV has them (%, count, dollar value)
 - Reorder bullets so the most JD-relevant comes first
+- **No unexplained abbreviations:** Never use domain-specific acronyms (e.g. DFM, DAG, RLHF, WBS) without spelling them out or rephrasing — a recruiter or hiring manager outside the domain must be able to read every bullet without a glossary
 
 #### `## Projects` (if applicable)
 
 Same structure as Experience but without the italic summary line (one-sentence context goes in the first bullet instead).
 
-**Project link icon:** If the CV library lists a URL for a project, append a link icon immediately after the project name on the same line:
+**Project link:** If the CV library lists a URL for a project, append a plain `Link` anchor inline after the project name on the title line:
 
 ```markdown
-**[Title]** 
-  : **Personal Project — [Project name]**  <a href="[link]" target="_blank" rel="noopener"><iconify-icon icon="lucide:link" width="16" height="10" style="vertical-align: middle; color: inherit;"></iconify-icon></a>
-  : **date**
-
+**Project Name** <a href="https://example.com/" target="_blank" rel="noopener">Link</a>
+  : Personal Project
+  : **Month Year – Month Year**
 ```
 
-Omit the `<a>` tag entirely if no URL is present for that project. Never fabricate or guess a URL.
+Omit the `<a>` tag entirely if no URL is present. Never fabricate or guess a URL.
 
 #### `## Education`
 
@@ -202,7 +212,7 @@ Before writing the file, verify:
 
 ## Projects
 
-**Project Name**
+**Project Name** <a href="https://example.com/" target="_blank" rel="noopener">Link</a>
   : **Context**
   : **Date**
 
@@ -218,3 +228,4 @@ Before writing the file, verify:
 Institution
   : Location
 ```
+
